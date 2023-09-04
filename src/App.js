@@ -11,6 +11,7 @@ import TrackList from "./components/tracklist/Tracklist";
 //IMPORT STYLES
 import "./styles/reset.css";
 
+//APP
 const App = () => {
   //MAIN RENDER
   return (
