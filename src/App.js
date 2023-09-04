@@ -10,19 +10,24 @@ import TrackList from "./components/tracklist/Tracklist";
 
 //IMPORT STYLES
 import "./styles/reset.css";
+import { Logo, MainWrapper } from "./App.styles";
 
 //APP
 const App = () => {
   //MAIN RENDER
   return (
-    <div>
-      <Playlist />
-      <SearchBar />
-      <SearchResults />
-      <Track />
-      <TrackList />
-      <SaveButton />
-    </div>
+    <MainWrapper>
+      <Logo>
+        <h1>Jamming</h1>
+      </Logo>
+      <div class="App">
+        <SearchBar />
+        <div class="App-playlist">
+          <SearchResults />
+          <Playlist />
+        </div>
+      </div>
+    </MainWrapper>
   );
 };
 

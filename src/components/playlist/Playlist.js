@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { fetchDataFromAPI } from "../../api/fetchDataFromAPI";
 
+//IMPORT COMPONENTS
+import SaveButton from "../saveButton/SaveButton";
+
+//IMPORT STYLES
+import { PlaylistContainer, SaveBtn } from "./Playlist.styles";
+
 const Playlist = () => {
   // STATES
   const [playlist, setPlaylist] = useState(null);
@@ -13,7 +19,13 @@ const Playlist = () => {
 
   console.log(playlist);
   // MAIN RENDER
-  return <div>playlist</div>;
+
+  return (
+    <PlaylistContainer>
+      <SaveButton />
+    </PlaylistContainer>
+  );
+  // TODO ADD A TRACKLIST COMPONENT
 };
 
 export default Playlist;
