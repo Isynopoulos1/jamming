@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { fetchDataFromAPI } from "./api/fetchDataFromAPI";
 
 //IMPORT COMPONENTS
 import Playlist from "./components/playlist/Playlist";
-import SaveButton from "./components/saveButton/SaveButton";
 import SearchBar from "./components/searchBar/SearchBar";
 import SearchResults from "./components/searchResults/SearchResults";
-import Track from "./components/track/Track";
-import TrackList from "./components/tracklist/Tracklist";
 
 //IMPORT STYLES
 import "./styles/reset.css";
@@ -14,17 +12,34 @@ import { Logo, MainWrapper } from "./App.styles";
 
 //APP
 const App = () => {
+  //STATES
+  const [tracks, setTracks] = useState([]);
+  const [search, setSearch] = useState("");
+
+  //LIFECYCLE
+  useEffect(() => {
+    const handleData = async () => {
+      const res = await fetchDataFromAPI(search);
+      setTracks(res?.tracks?.items);
+    };
+
+    handleData();
+  }, [search]);
+
+  console.log("STATE tracks", tracks);
+  // HANDLE FUNCTIONS
+
   //MAIN RENDER
   return (
     <MainWrapper>
       <Logo>
         <h1>Jamming</h1>
       </Logo>
-      <div class="App">
-        <SearchBar />
-        <div class="App-playlist">
-          <SearchResults />
-          <Playlist />
+      <div className="App">
+        <SearchBar setSearch={setSearch} />
+        <div className="App-playlist">
+          <SearchResults searchResults={[]} />
+          <Playlist tracks={tracks} />
         </div>
       </div>
     </MainWrapper>

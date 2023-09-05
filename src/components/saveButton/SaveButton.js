@@ -1,7 +1,8 @@
 import React from "react";
+import { BtnContainer } from "./SaveButton.styles";
 
 const SaveButton = () => {
-  return <btnContainer>SAVE BUTTON</btnContainer>;
+  return <BtnContainer>SAVE BUTTON</BtnContainer>;
 };
 
 export default SaveButton;

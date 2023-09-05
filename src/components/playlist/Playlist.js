@@ -3,29 +3,19 @@ import { fetchDataFromAPI } from "../../api/fetchDataFromAPI";
 
 //IMPORT COMPONENTS
 import SaveButton from "../saveButton/SaveButton";
+import Tracklist from "../tracklist/Tracklist";
 
 //IMPORT STYLES
-import { PlaylistContainer, SaveBtn } from "./Playlist.styles";
+import { PlaylistContainer } from "./Playlist.styles";
 
-const Playlist = () => {
-  // STATES
-  const [playlist, setPlaylist] = useState(null);
-
-  // LIFECYCLE
-  useEffect(async () => {
-    const data = await fetchDataFromAPI();
-    setPlaylist(data?.playlists?.items);
-  }, []);
-
-  console.log(playlist);
+const Playlist = ({ tracks }) => {
   // MAIN RENDER
-
   return (
     <PlaylistContainer>
+      <Tracklist tracks={tracks} />
       <SaveButton />
     </PlaylistContainer>
   );
-  // TODO ADD A TRACKLIST COMPONENT
 };
 
 export default Playlist;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainWrapper = styled.div`
   background-color: black;
 `;
-export const Logo = styled.h1`
+export const Logo = styled.div`
   width: 100%;
   display: flex;
   align-items: center;

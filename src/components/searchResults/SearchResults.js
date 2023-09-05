@@ -1,12 +1,18 @@
 import React from "react";
-import Tracklist from "../tracklist/Tracklist";
 
-const SearchResults = () => {
+//IMPORT COMPONENTS
+import Tracklist from "../tracklist/Tracklist";
+import Track from "../track/Track";
+import SearchButton from "../saveButton/SaveButton";
+
+import { Results } from "./SearchResults.styles";
+
+const SearchResults = ({ searchResults }) => {
   return (
-    <div>
-      Results
-      <Tracklist />
-    </div>
+    <Results>
+      WTF
+      <SearchButton />
+    </Results>
   );
 };
 
