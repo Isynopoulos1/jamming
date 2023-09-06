@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
 export const MainWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: black;
+  border: 1px solid green;
+  padding: 3rem;
 `;
 export const Logo = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
   font-size: 50px;
   font-family: "Poppins", sans-serif;

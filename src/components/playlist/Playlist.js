@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { fetchDataFromAPI } from "../../api/fetchDataFromAPI";
+import React from "react";
 
 //IMPORT COMPONENTS
 import SaveButton from "../saveButton/SaveButton";

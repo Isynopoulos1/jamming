@@ -35,13 +35,9 @@ const App = () => {
       <Logo>
         <h1>Jamming</h1>
       </Logo>
-      <div className="App">
-        <SearchBar setSearch={setSearch} />
-        <div className="App-playlist">
-          <SearchResults searchResults={[]} />
-          <Playlist tracks={tracks} />
-        </div>
-      </div>
+      <SearchBar setSearch={setSearch} />
+      <SearchResults searchResults={[]} />
+      <Playlist tracks={tracks} />
     </MainWrapper>
   );
 };
