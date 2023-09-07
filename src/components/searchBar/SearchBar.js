@@ -1,13 +1,13 @@
 import React from "react";
+
 //IMPORT STYLES
 import { SearchBarContainer, SearchInput } from "./SearchBar.styles";
 
 //IMPORT COMPONENTS
-import SearchButton from "../searchButton/SearchButton";
+import Button from "../button/Button";
 
-const SearchBar = ({ setSearch }) => {
+const SearchBar = ({ handleSubmit, setSearch }) => {
   //HANDLE FUNCTION
-
   const handleChange = (e) => {
     return setSearch(e.target.value);
   };
@@ -19,7 +19,7 @@ const SearchBar = ({ setSearch }) => {
         onChange={handleChange}
         placeholder="Enter a Song, Album or Artist"
       />
-      <SearchButton />
+      <Button label="Search" onClick={handleSubmit} />
     </SearchBarContainer>
   );
 };

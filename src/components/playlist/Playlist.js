@@ -1,18 +1,20 @@
 import React from "react";
 
 //IMPORT COMPONENTS
-import SaveButton from "../saveButton/SaveButton";
+
 import Tracklist from "../tracklist/Tracklist";
 
 //IMPORT STYLES
 import { PlaylistContainer } from "./Playlist.styles";
 
 const Playlist = ({ tracks }) => {
+  //VERIFY IF THERE TRACKS BEFORE TO RENDERIZE BTN
+  const isTrack = tracks && tracks.length > 0;
+
   // MAIN RENDER
   return (
     <PlaylistContainer>
-      <Tracklist tracks={tracks} />
-      <SaveButton />
+      {isTrack && <Tracklist tracks={tracks} />}
     </PlaylistContainer>
   );
 };

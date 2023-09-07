@@ -2,9 +2,11 @@ import styled from "styled-components";
 import { fonts } from "../../styles/index";
 
 export const TrackContainer = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #161616;
   color: white;
   font-family: ${fonts.font1};
 `;

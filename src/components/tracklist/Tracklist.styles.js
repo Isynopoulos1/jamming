@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { fonts } from "../../styles/index";
 
 export const TracklistContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;

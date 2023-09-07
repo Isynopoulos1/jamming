@@ -4,7 +4,6 @@ import { fetchDataFromAPI } from "./api/fetchDataFromAPI";
 //IMPORT COMPONENTS
 import Playlist from "./components/playlist/Playlist";
 import SearchBar from "./components/searchBar/SearchBar";
-import SearchResults from "./components/searchResults/SearchResults";
 
 //IMPORT STYLES
 import "./styles/reset.css";
@@ -17,17 +16,23 @@ const App = () => {
   const [search, setSearch] = useState("");
 
   //LIFECYCLE
-  useEffect(() => {
-    const handleData = async () => {
-      const res = await fetchDataFromAPI(search);
-      setTracks(res?.tracks?.items);
-    };
+  // useEffect(() => {
+  // const handleData = async () => {
+  //   const res = await fetchDataFromAPI(search);
+  //   setTracks(res?.tracks?.items);
+  // };
+  //   handleData();
+  // }, []);
 
-    handleData();
-  }, [search]);
+  // HANDLE FUNCTIONS
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetchDataFromAPI(search);
+    return setTracks(res?.tracks?.items);
+  };
 
   console.log("STATE tracks", tracks);
-  // HANDLE FUNCTIONS
 
   //MAIN RENDER
   return (
@@ -35,8 +40,7 @@ const App = () => {
       <Logo>
         <h1>Jamming</h1>
       </Logo>
-      <SearchBar setSearch={setSearch} />
-      <SearchResults searchResults={[]} />
+      <SearchBar handleSubmit={handleSubmit} setSearch={setSearch} />
       <Playlist tracks={tracks} />
     </MainWrapper>
   );
