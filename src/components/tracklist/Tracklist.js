@@ -9,9 +9,8 @@ import Track from "../track/Track";
 const Tracklist = ({ tracks }) => {
   return (
     <TracklistContainer>
-      {/* TODO YOU WILL ADD A MAP METHOD TO RENDERS A SET OF TRACK COMPONENTS */}
-      {tracks?.map((track, item) => (
-        <Track key={item} track={track} />
+      {tracks?.map((track, key) => (
+        <Track key={key} track={track} />
       ))}
     </TracklistContainer>
   );

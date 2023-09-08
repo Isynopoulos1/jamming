@@ -4,27 +4,25 @@ import React from "react";
 import Button from "../button/Button";
 
 //IMPORT STYLES
-import { TrackContainer, Cover } from "./Track.styles";
+import { TrackContainer, Cover, TrackName } from "./Track.styles";
 
 const Track = ({ track }) => {
   // VARIABLES AND HOOKS
-  const image = track?.data?.albumOfTrack?.coverArt?.sources?.[0]?.url;
-
+  const image = track?.album?.images?.[0]?.url;
+  console.log(track);
   // HANDLE FUNCTIONS
   const handleClick = (e) => {
-    console.log(track?.data);
+    console.log(track);
+    // CALL BACKEND FUNCTION THAT WILL SAVE THIS SPECIFIC TRACK INTO A PLAYLIST
+    // YOU WILL NEED TO INJECT 2 parameters that are the playingid and the trackid
     return;
   };
 
   //MAIN RENDER
   return (
     <TrackContainer>
-      {/* TODO YOU WILL ADD THE TRACK NAME */}
-      <div>{track?.name}</div>
       <Cover src={image} alt="cover" />
-      <div>{track?.artist}</div>
-      <div>{track?.album}</div>
-
+      <TrackName>{track?.name}</TrackName>
       <Button label="+" onClick={handleClick} />
     </TrackContainer>
   );

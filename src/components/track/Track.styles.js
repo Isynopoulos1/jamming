@@ -15,3 +15,8 @@ export const Cover = styled.img`
   display: flex;
   width: 100px;
 `;
+export const TrackName = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`;

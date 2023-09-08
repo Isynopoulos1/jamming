@@ -1,7 +1,6 @@
 import React from "react";
 
 //IMPORT COMPONENTS
-
 import Tracklist from "../tracklist/Tracklist";
 
 //IMPORT STYLES

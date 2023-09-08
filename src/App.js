@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { fetchDataFromAPI } from "./api/fetchDataFromAPI";
+import { getTracks } from "./api/spotify";
+
+// IMPORT API
+import { authenticate } from "./api/auth";
 
 //IMPORT COMPONENTS
 import Playlist from "./components/playlist/Playlist";
@@ -14,25 +17,25 @@ const App = () => {
   //STATES
   const [tracks, setTracks] = useState([]);
   const [search, setSearch] = useState("");
+  const [token, setToken] = useState("");
 
   //LIFECYCLE
-  // useEffect(() => {
-  // const handleData = async () => {
-  //   const res = await fetchDataFromAPI(search);
-  //   setTracks(res?.tracks?.items);
-  // };
-  //   handleData();
-  // }, []);
+  useEffect(() => {
+    const handleAuth = async () => {
+      const res = await authenticate();
+      // SAVE BEARER TOKEN INTO STATE
+      setToken(res?.access_token);
+    };
+    handleAuth();
+  }, []);
 
   // HANDLE FUNCTIONS
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetchDataFromAPI(search);
+    const res = await getTracks(search, token);
     return setTracks(res?.tracks?.items);
   };
-
-  console.log("STATE tracks", tracks);
 
   //MAIN RENDER
   return (
