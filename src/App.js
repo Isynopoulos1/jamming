@@ -44,7 +44,7 @@ const App = () => {
         <h1>Jamming</h1>
       </Logo>
       <SearchBar handleSubmit={handleSubmit} setSearch={setSearch} />
-      <Playlist tracks={tracks} />
+      <Playlist tracks={tracks} token={token} />
     </MainWrapper>
   );
 };

@@ -6,6 +6,7 @@ export const authenticate = async () => {
     grant_type: "client_credentials",
     client_id: clientId,
     client_secret: secret,
+    scope: "user-library-modify",
   });
   const options = {
     method: "POST",

@@ -1,20 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 //IMPORT COMPONENTS
 import Button from "../button/Button";
-
+import { saveTrack } from "../../api/save";
 //IMPORT STYLES
 import { TrackContainer, Cover, TrackName } from "./Track.styles";
 
-const Track = ({ track }) => {
-  // VARIABLES AND HOOKS
+const Track = ({ track, token }) => {
   const image = track?.album?.images?.[0]?.url;
-  console.log(track);
+
   // HANDLE FUNCTIONS
-  const handleClick = (e) => {
-    console.log(track);
-    // CALL BACKEND FUNCTION THAT WILL SAVE THIS SPECIFIC TRACK INTO A PLAYLIST
-    // YOU WILL NEED TO INJECT 2 parameters that are the playingid and the trackid
+  const handleClick = async (e) => {
+    e.preventDefault();
+    await saveTrack(track.id, token);
     return;
   };
 
