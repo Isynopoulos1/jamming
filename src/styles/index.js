@@ -9,6 +9,8 @@ export const fonts = {
 };
 
 export const buttons = {
+  large: "200px",
   small: "100px",
   xs: "50px",
+  xss: "20px",
 };
