@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
 //IMPORT COMPONENTS
 import Button from "../button/Button";
 import { saveTrack } from "../../api/save";
 //IMPORT STYLES
-import { TrackContainer, Cover, TrackName } from "./Track.styles";
+import {
+  MainContainer,
+  Cover,
+  TrackName,
+  BtnWrapper,
+  AlbumWrapper,
+  BtnMainContainer,
+} from "./Track.styles";
 
 const Track = ({ track, token }) => {
   const image = track?.album?.images?.[0]?.url;
@@ -18,11 +25,17 @@ const Track = ({ track, token }) => {
 
   //MAIN RENDER
   return (
-    <TrackContainer>
-      <Cover src={image} alt="cover" />
-      <TrackName>{track?.name}</TrackName>
-      <Button label="+" onClick={handleClick} />
-    </TrackContainer>
+    <MainContainer>
+      <AlbumWrapper>
+        <Cover src={image} alt="cover" />
+        <TrackName>{track?.name}</TrackName>
+      </AlbumWrapper>
+      <BtnMainContainer>
+        <BtnWrapper>
+          <Button label="+" onClick={handleClick} />
+        </BtnWrapper>
+      </BtnMainContainer>
+    </MainContainer>
   );
 };
 

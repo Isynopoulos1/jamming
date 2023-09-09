@@ -1,7 +1,7 @@
 import React from "react";
 
 //IMPORT STYLES
-import { SearchBarContainer, SearchInput } from "./SearchBar.styles";
+import { SearchBarContainer, SearchInput, Logo } from "./SearchBar.styles";
 
 //IMPORT COMPONENTS
 import Button from "../button/Button";
@@ -14,6 +14,9 @@ const SearchBar = ({ handleSubmit, setSearch }) => {
   //MAIN RENDER
   return (
     <SearchBarContainer>
+      <Logo>
+        <h1>Jamming</h1>
+      </Logo>
       <SearchInput
         type="text"
         onChange={handleChange}

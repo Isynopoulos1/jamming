@@ -10,7 +10,7 @@ import SearchBar from "./components/searchBar/SearchBar";
 
 //IMPORT STYLES
 import "./styles/reset.css";
-import { Logo, MainWrapper } from "./App.styles";
+import { MainWrapper } from "./App.styles";
 
 //APP
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
   const [tracks, setTracks] = useState([]);
   const [search, setSearch] = useState("");
   const [token, setToken] = useState("");
+  const [showPlaylist, setShowPlaylist] = useState(false);
 
   //LIFECYCLE
   useEffect(() => {
@@ -34,17 +35,16 @@ const App = () => {
     e.preventDefault();
 
     const res = await getTracks(search, token);
-    return setTracks(res?.tracks?.items);
+    setTracks(res?.tracks?.items);
+    setShowPlaylist(true); //MOSTRAR COMPONENTE PLAYLIST
+    return;
   };
 
   //MAIN RENDER
   return (
     <MainWrapper>
-      <Logo>
-        <h1>Jamming</h1>
-      </Logo>
       <SearchBar handleSubmit={handleSubmit} setSearch={setSearch} />
-      <Playlist tracks={tracks} token={token} />
+      {showPlaylist ? <Playlist tracks={tracks} token={token} /> : null}
     </MainWrapper>
   );
 };

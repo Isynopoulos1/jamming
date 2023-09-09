@@ -1,15 +1,12 @@
 import styled from "styled-components";
 import { colors, fonts, buttons } from "../../styles/index";
 
-export const BtnContainer = styled.div`
+export const Btn = styled.button`
   display: flex;
   justify-content: center;
-  width: 100%;
-`;
-
-export const SaveBtn = styled.button`
   width: ${buttons.small};
   padding: 10px 10px;
+  align-items: center;
   border-radius: 50px;
   outline: none;
   border: 1px solid ${colors.green};

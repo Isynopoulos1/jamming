@@ -10,4 +10,5 @@ export const fonts = {
 
 export const buttons = {
   small: "100px",
+  xs: "50px",
 };
